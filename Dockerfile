@@ -15,7 +15,8 @@ ARG JDEPS_EXTRA="jdk.crypto.cryptoki,jdk.crypto.ec"
 ###########################################################
 # Build Fuseki from sources and include GeoSPARQL support #
 ###########################################################
-FROM --platform=${BUILDPLATFORM} "docker.io/library/maven:3.8.4-openjdk-17-slim" AS builder
+#FROM --platform=${BUILDPLATFORM} "docker.io/library/maven:3.8.4-openjdk-17-slim" AS builder
+FROM "docker.io/library/maven:3.8.4-openjdk-17-slim" AS builder
 ARG JENA_VERSION
 ARG OTEL_VERSION
 ARG FUSEKI_HOME
@@ -67,7 +68,8 @@ RUN jdeps \
 #############################################################
 # Generate all depedencies depending on the target platform #
 #############################################################
-FROM --platform=${TARGETPLATFORM} "docker.io/library/alpine:${ALPINE_VERSION}" as deps
+#FROM --platform=${TARGETPLATFORM} "docker.io/library/alpine:${ALPINE_VERSION}" as deps
+FROM "docker.io/library/alpine:${ALPINE_VERSION}" as deps
 ARG FUSEKI_HOME
 ARG JAVA_MINIMAL
 ARG JDEPS_EXTRA
@@ -88,7 +90,8 @@ RUN \
 ############################
 # Build final Docker image #
 ############################
-FROM --platform=${TARGETPLATFORM} "docker.io/library/alpine:${ALPINE_VERSION}"
+#FROM --platform=${TARGETPLATFORM} "docker.io/library/alpine:${ALPINE_VERSION}"
+FROM "docker.io/library/alpine:${ALPINE_VERSION}"
 
 # install some required dependencies
 RUN apk add --no-cache gettext

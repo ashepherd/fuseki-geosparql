@@ -1,0 +1,3 @@
+.env
+databases/**
+scripts/bco-dmo/**
