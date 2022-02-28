@@ -7,6 +7,6 @@ services:
     volumes:
       - ./databases:/fuseki/databases
       - ./config/config.ttl:/fuseki/config.ttl
-      - ./config/shiro.ini:/fuseki/shiro.ini
+      - ./config/shiro.ini:/opt/fuseki/shiro.ini
     ports:
       - 3030:3030
