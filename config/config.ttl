@@ -45,7 +45,7 @@
   fuseki:dataset <#ds> .
 
 <#ds> rdf:type geosparql:geosparqlDataset ;
-  geosparql:spatialIndexFile "/fuseki/databases/ds/spatial.index";
+  geosparql:spatialIndexFile "/fuseki/databases/bcodmo/spatial.index";
 
   # some GeoSPARQL settings
   geosparql:inference            true ;
